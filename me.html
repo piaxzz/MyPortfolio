@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia Ranalan - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mint: #d4e8dc;
+            --cream: #f5f1ed;
+            --dark: #2d2d2d;
+            --accent: #4ecdc4;
+            --green-accent: #2d8659;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 40px 60px;
+            z-index: 1000;
+            display: flex;
+            gap: 50px;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--green-accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--green-accent);
+        }
+
+        /* Hero Section */
+        #home {
+            min-height: 100vh;
+            background: var(--mint);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 60px;
+            gap: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 60s linear infinite;
+            opacity: 0.3;
+        }
+
+
+        
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInLeft 1s ease;
+        }
+
+        .image-container {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(78, 205, 196, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 20px;
+            display: block;
+            position: relative;
+            z-index: 1;
+
+        }
+
+        .hero-content {
+            animation: fadeInRight 1s ease;
+        }
+
+        .hero-content h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 90px;
+            font-weight: 900;
+            line-height: 0.95;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.5s forwards;
+        }
+
+        .hero-content .subtitle {
+            font-size: 32px;
+            color: var(--green-accent);
+            font-weight: 700;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.7s forwards;
+        }
+
+        .hero-content .role {
+            font-size: 28px;
+            color: var(--green-accent);
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.9s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* About Section */
+        #about {
+            min-height: 100vh;
+            background: var(--cream);
+            padding: 120px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .about-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+
+        .about-content p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* Skills Section */
+        #skills {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0C7779 0%, #249E94 100%);
+            padding: 120px 60px;
+            position: relative;
+        }
+
+        #skills::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1" fill="white" opacity="0.1"/></svg>');
+            background-size: 60px 60px;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skills-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            color: white;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 50px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+    
+
+        .skill-card h3 {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        #contact {
+            min-height: 100vh;
+            background: var(--mint);
+            padding: 120px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            margin-bottom: 60px;
+            color: var(--dark);
+        }
+
+        .contact-info {
+            background: white;
+            padding: 80px 200px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+            font-size: 20px;
+            color: #555;
+        }
+
+        .contact-item strong {
+            color: var(--dark);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-item a {
+            color: var(--green-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+        
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            #home {
+                grid-template-columns: 1fr;
+                padding: 40px;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 60px;
+            }
+
+            .hero-content .subtitle,
+            .hero-content .role {
+                font-size: 24px;
+            }
+
+            nav {
+                padding: 30px 30px;
+                gap: 30px;
+            }
+
+            nav a {
+                font-size: 16px;
+            }
+
+            .about-content h2,
+            .skills-container h2,
+            .contact-content h2 {
+                font-size: 48px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#home" target="_blank">Home</a>
+        <a href="#about"target="_blank">About Me</a>
+        <a href="#skills" target="_blank">Skills</a>
+        <a href="#contact" target="blank">Contact Me</a>
+        
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="hero-image">
+            <div class="image-container">
+                <img src="me.jpg" alt="Sophia Ranalan">
+            </div>
+        </div>
+        <div class="hero-content">
+            <h2>Helloooo! I'm</h2>
+            <h1>Sophia<br>Ranalan</h1>
+           <p class="subtitle"> STI COLLEGE- ORMOC</p>
+           
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>
+                Hello, I’m Sophia, a third-year BSIT student.
+                I am an aspiring IT professional with a strong interest in learning and improving my programming skills. 
+                I am motivated, adaptable, and committed to continuous learning through academic coursework and hands-on projects.
+            </p>
+            <p>
+                I am currently learning the basics of web development and programming, including HTML, CSS, and Java.
+                I enjoy exploring new technologies, practicing my skills through school projects, and improving my knowledge step by step as an IT student.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="skills-container">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>HTML</h3>
+                    <p>HTML to structure web pages by organizing content like text, images, and links. It helps me build the basic layout of a website.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>CSS</h3>
+                    <p>CSS to design and style websites by adding colors, fonts, layouts, and spacing to make pages look clean and attractive</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Java</h3>
+                    <p>Java to create simple programs and system features by applying logic, conditions, and object-oriented concepts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-content">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a href="https://accounts.google.com/servicelogin?service=mail"target="_blank">sophiaranalan16@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Contact no</strong>
+                    <a href="tel:+9518159572">09518159572</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Location</strong>
+                    Ormoc City, Philippines
+
+                <div class="contact-item">
+                    <br>
+                    <strong>My Socials</strong>
+                    <div class="social-icons">
+                        <a href="https://web.facebook.com/piyaxzs" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
